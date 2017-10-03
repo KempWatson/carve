@@ -12,7 +12,7 @@ import (
 
 // ReduceHeight uses seam carving to reduce height of given image by n pixels.
 func ReduceHeight(im image.Image, n int) (image.Image, error) {
-	height := im.Bounds().Max.Y - im.Bounds().Min.Y
+	height := im.Bounds().Dy()
 	if height < n {
 		return im, fmt.Errorf("Cannot resize image of height %d by %d pixels", height, n)
 	}
@@ -27,7 +27,7 @@ func ReduceHeight(im image.Image, n int) (image.Image, error) {
 
 // ReduceWidth uses seam carving to reduce width of given image by n pixels.
 func ReduceWidth(im image.Image, n int) (image.Image, error) {
-	width := im.Bounds().Max.Y - im.Bounds().Min.Y
+	width := im.Bounds().Dx()
 	if width < n {
 		return im, fmt.Errorf("Cannot resize image of width %d by %d pixels", width, n)
 	}
