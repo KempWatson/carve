@@ -27,7 +27,7 @@ func ReduceHeight(im image.Image, n int) (image.Image, error) {
 
 // ReduceWidth uses seam carving to reduce width of given image by n pixels.
 func ReduceWidth(im image.Image, n int) (image.Image, error) {
-	width := im.Bounds().Max.Y - im.Bounds().Min.Y
+	width := im.Bounds().Max.X - im.Bounds().Min.X
 	if width < n {
 		return im, fmt.Errorf("Cannot resize image of width %d by %d pixels", width, n)
 	}
